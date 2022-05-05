@@ -1,7 +1,7 @@
 apply plugin: 'java'
 
-sourceCompatibility = 17
-targetCompatibility = 17
+sourceCompatibility = 11
+targetCompatibility = 11
 
 repositories {
     mavenCentral()
@@ -11,7 +11,10 @@ dependencies {
     implementation 'org.apache.logging.log4j:log4j-core:2.17.0'
     implementation 'com.vlkan.log4j2:log4j2-logstash-layout:1.0.5'
 
+    implementation 'mysql:mysql-connector-java:8.0.18'
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation 'org.mockito:mockito-core:2.+'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
 

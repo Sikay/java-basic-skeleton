@@ -1,4 +1,4 @@
-package tv.codely.java_basic_skeleton;
+package wedev.java_basic_skeleton;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,5 +20,11 @@ public class GreeterShould {
 		RuntimeException error = new RuntimeException("exceptioooon");
 		logger.error("Hello error world!", error);
 	}
+
+    @Test
+    void greet_with_a_hello_message_to_the_name_it_receives_2() {
+        Greeter greeter = new Greeter();
+        assertEquals("Hello Jim", greeter.greet("Jim"));
+    }
 
 }

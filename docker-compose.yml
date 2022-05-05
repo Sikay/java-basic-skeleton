@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: ${MYSQL_HOST}
+    image: mysql:${MYSQL_VERSION}
+    ports:
+      - "3360:3306"
+    env_file:
+      - ".env"
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+
+  java:
+    container_name: ${JAVA_PROJECT_NAME}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8030:8080"
+    volumes:
+      - .:/app:delegated
+    env_file:
+      - .env
+    tty: true
+    depends_on:
+      - mysql
