@@ -8,6 +8,10 @@ docker-up:
 docker-down:
 	@docker-compose down -v
 
+.PHONY: stop
+stop:
+	@./gradlew --stop
+
 .PHONY: build
 build:
 	@./gradlew build --warning-mode all
@@ -16,9 +20,17 @@ build:
 test:
 	@./gradlew test --warning-mode all
 
+.PHONY: docker-build
+docker-build:
+	@docker exec "$(JAVA_PROJECT_NAME)" ./gradlew build --warning-mode all
+
 .PHONY: docker-test
 docker-test:
-	@docker exec agenda-java ./gradlew test --warning-mode all
+	@docker exec "$(JAVA_PROJECT_NAME)" ./gradlew test --warning-mode all
+
+.PHONY: clean
+clean:
+	@docker exec "$(JAVA_PROJECT_NAME)" ./gradlew clean
 
 .PHONY: ping-mysql
 ping-mysql:

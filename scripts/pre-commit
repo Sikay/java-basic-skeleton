@@ -2,7 +2,8 @@
 
 echo "*****Running unit tests******"
 
-./gradlew test
+make docker-up
+make docker-test
 
 status=$?
 
