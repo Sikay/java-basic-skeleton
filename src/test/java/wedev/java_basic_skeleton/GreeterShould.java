@@ -24,7 +24,7 @@ public class GreeterShould {
     @Test
     void greet_with_a_hello_message_to_the_name_it_receives_2() {
         Greeter greeter = new Greeter();
-        assertEquals("Hello Jim", greeter.greet("Jim"));
+        assertEquals("Hello Ji", greeter.greet("Jim"));
     }
 
 }
