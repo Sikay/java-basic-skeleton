@@ -21,9 +21,17 @@ jobs:
         env:
           DEV_ENV_FILE: ${{secrets.DEV_ENV_FILE}}
 
+      - name: Display the path
+        run: ls
+        shell: bash
+
       - name: Cat env
         run: |
           cat .env
+        shell: bash
+
+      - name: Display the path
+        run: ls
         shell: bash
 
       - name: Start all the environment
