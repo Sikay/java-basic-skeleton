@@ -16,7 +16,7 @@ jobs:
 
       - name: Create environment file
         run: |
-          echo $DEV_ENV_FILE > .env
+          echo "$DEV_ENV_FILE" > .env
           cat .env
         shell: bash
         env:
