@@ -1,5 +1,21 @@
 include .env
 
+.PHONY: help
+help:
+	@echo ""
+	@echo "usage: make COMMAND"
+	@echo ""
+	@echo "Commands:"
+	@echo "  build			💻 Installs all the dependencies"
+	@echo "  stop			💻 Stop all gradle daemons"
+	@echo "  test			✅ Running all the tests"
+	@echo "  docker-up		⏫ Lift the containers"
+	@echo "  docker-down		⏫ Turn off the containers"
+	@echo "  docker-build		💻 Installs all the dependencies in docker"
+	@echo "  docker-clean		💻 Delete gradle build"
+	@echo "  docker-test		✅ Running all the tests in docker"
+	@echo "  ping-mysql		✅ Check that mysql docker is up"
+
 .PHONY: docker-up
 docker-up:
 	@docker-compose up -d
@@ -28,7 +44,7 @@ docker-build:
 docker-test:
 	@docker exec "$(JAVA_PROJECT_NAME)" ./gradlew test --warning-mode all
 
-.PHONY: clean
+.PHONY: docker-clean
 clean:
 	@docker exec "$(JAVA_PROJECT_NAME)" ./gradlew clean
 

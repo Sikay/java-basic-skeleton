@@ -32,4 +32,20 @@ task installLocalGitHook(type: Copy){
     fileMode 0777
 }
 
+task generateEnv()  {
+    new File(rootProject.rootDir, ".env.example").text = """
+        # Java
+        JAVA_PROJECT_NAME=java-basic-skeleton
+
+        # MySQL
+        MYSQL_VERSION=8
+        MYSQL_HOST=java-basic-skeleton-mysql
+        MYSQL_DATABASE=java-basic-skeleton
+        MYSQL_ROOT_USER=root
+        MYSQL_ROOT_PASSWORD=root
+        MYSQL_USER=dev
+        MYSQL_PASSWORD=dev
+    """
+}
+
 build.dependsOn installLocalGitHook
