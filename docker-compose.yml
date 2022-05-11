@@ -16,9 +16,8 @@ services:
 
   java:
     container_name: ${JAVA_PROJECT_NAME}
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: openjdk:11-slim-buster
+    working_dir: /app
     restart: unless-stopped
     ports:
       - "8030:8080"
