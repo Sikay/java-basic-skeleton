@@ -10,28 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Display the pathh
-        run: ls -a
-        shell: bash
-
       - name: Create environment file
         run: |
           echo "$DEV_ENV_FILE" > .env
-          cat .env
-        shell: bash
         env:
           DEV_ENV_FILE: ${{secrets.DEV_ENV_FILE}}
 
-      - name: Display the path
-        run: ls -a
-        shell: bash
-
-      - name: Display the path
-        run: ls -a
-        shell: bash
-
       - name: Start all the environment
-        run: docker-compose up -d
+        run: make docker-up
 
       - name: Wait for the environment to get up
         run: |
