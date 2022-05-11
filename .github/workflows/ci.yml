@@ -10,6 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - name: Create enviroment file
+        run: |
+          echo $DEV_ENV_FILE >> .env
+
+      - name: Cat env
+        run: |
+          cat .env
+
       - name: Start all the environment
         run: docker-compose up -d
 
