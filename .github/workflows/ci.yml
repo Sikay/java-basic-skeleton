@@ -29,3 +29,6 @@ jobs:
       - name: Run the tests
         run: make docker-test
 
+      - name: Stop all the environment
+        run: make docker-down
+
