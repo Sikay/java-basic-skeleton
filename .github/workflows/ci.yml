@@ -17,17 +17,13 @@ jobs:
       - name: Create environment file
         run: |
           echo $DEV_ENV_FILE > .env
+          cat .env
         shell: bash
         env:
           DEV_ENV_FILE: ${{secrets.DEV_ENV_FILE}}
 
       - name: Display the path
         run: ls -a
-        shell: bash
-
-      - name: Cat env
-        run: |
-          cat .env
         shell: bash
 
       - name: Display the path
