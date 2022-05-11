@@ -13,10 +13,12 @@ jobs:
       - name: Create enviroment file
         run: |
           echo $DEV_ENV_FILE >> .env
+        shell: bash
 
       - name: Cat env
         run: |
           cat .env
+        shell: bash
 
       - name: Start all the environment
         run: docker-compose up -d
