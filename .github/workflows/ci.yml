@@ -10,10 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Create enviroment file
+      - name: Display the path
+        run: echo $PATH
+        shell: bash
+
+      - name: Create environment file
         run: |
           echo $DEV_ENV_FILE >> .env
         shell: bash
+        env:
+          DEV_ENV_FILE: ${{secrets.DEV_ENV_FILE}}
 
       - name: Cat env
         run: |
