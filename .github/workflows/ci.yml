@@ -16,7 +16,7 @@ jobs:
 
       - name: Create environment file
         run: |
-          echo $DEV_ENV_FILE >> .env
+          echo $DEV_ENV_FILE > .env
         shell: bash
         env:
           DEV_ENV_FILE: ${{secrets.DEV_ENV_FILE}}
